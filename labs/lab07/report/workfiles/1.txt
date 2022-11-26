@@ -1,0 +1,423 @@
+[mekosolapov@fedora ~]$ ls
+ pandoc-2.19   Видео       Загрузки      Музыка         'Рабочий стол'
+ work          Документы   Изображения   Общедоступные   Шаблоны
+[mekosolapov@fedora ~]$ cd work
+[mekosolapov@fedora work]$ lf
+bash: lf: команда не найдена...
+[mekosolapov@fedora work]$ ls
+arch-pc  study
+[mekosolapov@fedora work]$ cd artch-pc
+bash: cd: artch-pc: Нет такого файла или каталога
+[mekosolapov@fedora work]$ cd arch-pc
+[mekosolapov@fedora arch-pc]$ ls
+lab05  lab06  lab07
+[mekosolapov@fedora arch-pc]$ cd lab07
+[mekosolapov@fedora lab07]$ ls
+in_out.asm  lab7-1  lab7-1.asm  lab7-1.o  lab7-2  lab7-2.asm  lab7-2.o
+[mekosolapov@fedora lab07]$ ./lab7-2 &
+[1] 3473
+106[1]+  Завершён        ./lab7-2
+[mekosolapov@fedora lab07]$ gedit lab7-2.asm
+[mekosolapov@fedora lab07]$ nasm -f elf lab7-1.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o lab7-2 lab7-2.o
+[mekosolapov@fedora lab07]$ nasm -f elf lab7-2.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o lab7-2 lab7-2.o
+[mekosolapov@fedora lab07]$ ./lab7-2
+10
+[mekosolapov@fedora lab07]$ gedit lab7-2.asm &
+[1] 3638
+[mekosolapov@fedora lab07]$ nasm -f elf lab7-2.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o lab7-2 lab7-2.o
+[mekosolapov@fedora lab07]$ ./lab7-2
+10[mekosolapov@fedora lab07]$ touch lab6-3.asm
+[mekosolapov@fedora lab07]$ mv lab6-3.asm
+mv: после 'lab6-3.asm' пропущен операнд, задающий целевой файл
+По команде «mv --help» можно получить дополнительную информацию.
+[mekosolapov@fedora lab07]$ mv -f lab6-3.asm
+mv: после 'lab6-3.asm' пропущен операнд, задающий целевой файл
+По команде «mv --help» можно получить дополнительную информацию.
+[mekosolapov@fedora lab07]$ rm lab6-3.asm
+[mekosolapov@fedora lab07]$ ls
+in_out.asm  lab7-1  lab7-1.asm  lab7-1.o  lab7-2  lab7-2.asm  lab7-2.o
+[mekosolapov@fedora lab07]$ touch lab7-3.asm
+[mekosolapov@fedora lab07]$ gedit lab7-3.asm &
+[2] 3831
+[mekosolapov@fedora lab07]$ nasm -f elf lab7-3.asm
+[2]+  Завершён        gedit lab7-3.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o lab7-3 lab7-3.o
+[mekosolapov@fedora lab07]$ ls
+in_out.asm  lab7-1.asm  lab7-2      lab7-2.o  lab7-3.asm
+lab7-1      lab7-1.o    lab7-2.asm  lab7-3    lab7-3.o
+[mekosolapov@fedora lab07]$ ./lab7-3
+Результат4
+Остаток от деления: 1
+[mekosolapov@fedora lab07]$ nasm -f elf lab7-3.asm
+[mekosolapov@fedora lab07]$ ld -m elf-i386 -o lab7-3 lab7-3.o
+ld: не распознан режим эмуляции: elf-i386
+Поддерживаемые эмуляции: elf_x86_64 elf32_x86_64 elf_i386 elf_iamcu elf_l1om elf_k1om i386pep i386pe elf64bpf
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o lab7-3 lab7-3.o
+[mekosolapov@fedora lab07]$ nasm -f elf lab7-3.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o lab7-3 lab7-3.o
+[mekosolapov@fedora lab07]$ ./lab7-3
+Результат: 4
+Остаток от деления: 1
+[mekosolapov@fedora lab07]$ nasm -f elf lab7-3.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o lab7-3 lab7-3.o
+[mekosolapov@fedora lab07]$ ./lab7-3
+Результат: 5
+Остаток от деления: 1
+[mekosolapov@fedora lab07]$ touch variant.asm
+[mekosolapov@fedora lab07]$ gedit variant.asm
+[mekosolapov@fedora lab07]$ nasm -f elf variant.asm
+variant.asm:27: error: symbol `edc' not defined
+[mekosolapov@fedora lab07]$ nasm -f elf variant.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o variant variant.o
+[mekosolapov@fedora lab07]$ ./variant
+: 
+dfg
+: 1
+[mekosolapov@fedora lab07]$ ./variant
+: 
+^[[A^[[A
+: 1
+[mekosolapov@fedora lab07]$ nasm if elf variant.asm
+if: fatal: more than one input file specified: elf
+
+[mekosolapov@fedora lab07]$ nasm -f elf variant.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o variant variant.o
+[mekosolapov@fedora lab07]$ ./variant
+Введите № студенческого билета: 
+1132226485
+Ваш вариант: 6
+[mekosolapov@fedora lab07]$ ./variant
+Введите № студенческого билета: 
+1132226485
+Ваш вариант: 6
+[mekosolapov@fedora lab07]$ touch myprog.asm
+[1]+  Завершён        gedit lab7-2.asm
+[mekosolapov@fedora lab07]$ gedit myprog.asm
+[mekosolapov@fedora lab07]$ rm myprog.asm
+[mekosolapov@fedora lab07]$ touch myprogvar6.asm
+[mekosolapov@fedora lab07]$ gedit myprogvar6.asm
+^Z
+[1]+  Остановлен    gedit myprogvar6.asm
+[mekosolapov@fedora lab07]$ gedit myprogvar6.asm &
+[2] 5206
+[1]   Убито              gedit myprogvar6.asm
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+myprogvar6.asm:34: error: parser: instruction expected
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+myprogvar6.asm:31: error: parser: instruction expected
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+myprogvar6.asm:31: error: parser: instruction expected
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+myprogvar6.asm:33: error: parser: instruction expected
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+myprogvar6.asm:33: error: parser: instruction expected
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+myprogvar6.asm:43: error: parser: instruction expected
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+myprogvar6.asm:45: error: parser: instruction expected
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+myprogvar6.asm:20: error: symbol `sprintLF' not defined
+myprogvar6.asm:25: error: symbol `sprintLF' not defined
+myprogvar6.asm:31: error: symbol `sread' not defined
+myprogvar6.asm:36: error: symbol `atoi' not defined
+myprogvar6.asm:47: error: symbol `res' not defined
+myprogvar6.asm:50: error: symbol `sprint' not defined
+myprogvar6.asm:51: error: symbol `res' not defined
+myprogvar6.asm:52: error: symbol `iprint' not defined
+myprogvar6.asm:54: error: symbol `quit' not defined
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+myprogvar6.asm:48: error: symbol `res' not defined
+myprogvar6.asm:52: error: symbol `res' not defined
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i1386 -o myprogvar6 myprogvar6.o
+ld: не распознан режим эмуляции: elf_i1386
+Поддерживаемые эмуляции: elf_x86_64 elf32_x86_64 elf_i386 elf_iamcu elf_l1om elf_k1om i386pep i386pe elf64bpf
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+ld: предупреждение: невозможно найти символ входа _start; используем значение по умолчанию 0000000008049000
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+ld: предупреждение: невозможно найти символ входа _start; используем значение по умолчанию 0000000008049000
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+f(x) = 𝑥3/2 + 1
+Введите значение x: 
+0
+Ответ: 1[mekosolapov@fedora nasm -f elf myprogvar6.asmogvar6.o
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+f(x) = 𝑥3/2 + 1
+Введите значение x: 
+2
+Ответ: 4
+[mekosolapov@fedora lab07]$ ./myprogvar6
+f(x) = 𝑥3/2 + 1
+Введите значение x: 
+0
+Ответ: 1
+[mekosolapov@fedora lab07]$ ./myprogvar6
+f(x) = 𝑥3/2 + 1
+Введите значение x: 
+10
+Ответ: 16
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+f(x) = 𝑥3/2 + 1
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥3/2 + 1
+Введите значение x: 
+^[[A
+Ответ: 1
+[mekosolapov@fedora lab07]$ ./myprogvar6
+f(x) = 𝑥3/2 + 1
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥3/2 + 1
+Введите значение x: 
+^[[A^[[A
+Ответ: 1
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥3/2 + 1
+Введите значение x: 
+1
+Ответ: 2
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+3
+Ответ: 5
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+^[[A^[[A
+Ответ: 1
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+2
+Ответ: 28
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+2
+Исключение в операции с плавающей точкой (стек памяти сброшен на диск)
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+^[[A
+Ответ: 1
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+2
+Ответ: 9
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+2
+2
+Ответ: 9
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+^[[A
+0
+Ответ: 1
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+2
+4Ответ: 9
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+2
+Ответ: 5
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+3
+Ответ: 14
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+myprogvar6.asm:58: error: parser: instruction expected
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+myprogvar6.asm:58: error: parser: instruction expected
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+2
+Ответ: 5
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+3
+Ответ: 14
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+2
+Ответ: 5
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+3
+Ответ: 15
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+4
+Ответ: 33
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+2
+Ответ: 5
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+1
+Ответ: 2
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+0
+Ответ: 1
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+2
+Ответ: 5
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+10
+Ответ: 501
+[mekosolapov@fedora lab07]$ ./myprogvar
+bash: ./myprogvar: Нет такого файла или каталога
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+3       
+Ответ: 15
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+3
+Ответ: 14
+Остаток: 
+Ошибка сегментирования (стек памяти сброшен на диск)
+[mekosolapov@fedora lab07]$ nasm -f elf myprogvar6.asm
+[mekosolapov@fedora lab07]$ ld -m elf_i386 -o myprogvar6 myprogvar6.o
+[mekosolapov@fedora lab07]$ ./myprogvar6
+Косолапов Матвей
+НММбд-01-22
+Вариант №6
+f(x) = 𝑥^3/2 + 1
+Введите значение x: 
+3
+Ответ: 14
+Остаток: 
+1
+[mekosolapov@fedora lab07]$ 
